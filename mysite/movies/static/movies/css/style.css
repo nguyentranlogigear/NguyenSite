@@ -1,0 +1,49 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+	position: relative;
+	font-weight: 400px;
+}
+#header .fix-logo {
+  position: relative;
+}
+
+.logo-metiz {
+  width: 202px;
+  height: 203px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #021325;
+}
+.logo-metiz img {
+}
+.main-header .header-top {
+  	background: #0e1e2e;
+}
+.main-header .header-menu {
+  background: #d7d421;
+}
+.main-header .header-top-right {
+  	padding-left: 300px;
+  	float: right;
+}
+.header-top-right ul {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+ul li {
+	list-style: none;
+	text-decoration: none;
+	display: inline-block;
+}
+ul li a {
+	list-style: none;
+	text-decoration: none;
+	color: #7a899e;
+	font-style: 12px;
+}
+ul li a:hover {
+	outline: none; 
+	text-decoration: none;
+	color: #ab3b13;
+}
