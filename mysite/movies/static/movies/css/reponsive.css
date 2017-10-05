@@ -1,0 +1,28 @@
+/*Danh cho dien thoai di dong, hien thi chieu doc*/
+@media screen and (max-width: 320px) {
+
+}
+/*Danh cho dien thoai di dong, hien thi chieu ngang*/
+@media screen and (max-width:480px) {
+
+}
+/*Danh cho may tinh bang chieu doc*/
+@media screen and (max-width: 600px) {
+
+}
+/*Danh cho may tinh bang chieu ngang*/
+@media screen and (max-width: 800px) {
+
+}
+/*May tinh bang loai to, hien thi chieu doc*/
+@media screen and (max-width: 768px) {
+
+}
+/*May tinh bang loai to, hien thi chieu ngang*/
+@media screen and (max-width: 1024px) {
+
+}
+/*Danh cho man hinh desktop*/
+@media screen and (max-width: 1025px) {
+	
+}
