@@ -2,48 +2,137 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	position: relative;
 	font-weight: 400px;
+	background: #0e1e2e;
 }
-#header .fix-logo {
-  position: relative;
+/*==========Header Area============*/
+#header {
+	margin: 0;
+	padding: 0;
+}
+.fix-logo {
+  	position: relative;
 }
 
 .logo-metiz {
-  width: 202px;
-  height: 203px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: #021325;
+  	width: 200px;
+  	height: 200px;
+  	position: absolute;
+  	top: 0;
+ 	background: #021325;
 }
+
 .logo-metiz img {
+	right: 156px;
+	bottom: 106px;
+	position: relative;
 }
+
 .main-header .header-top {
   	background: #0e1e2e;
 }
 .main-header .header-menu {
-  background: #d7d421;
+  background: #031327;
 }
 .main-header .header-top-right {
-  	padding-left: 300px;
   	float: right;
 }
 .header-top-right ul {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
-ul li {
+.header-top-right ul li {
 	list-style: none;
 	text-decoration: none;
 	display: inline-block;
 }
-ul li a {
+.header-top-right ul li a {
 	list-style: none;
 	text-decoration: none;
 	color: #7a899e;
 	font-style: 12px;
 }
-ul li a:hover {
+.header-top-right ul li a:hover {
 	outline: none; 
 	text-decoration: none;
 	color: #ab3b13;
 }
+/*==========Menu Area===========*/
+.nav-area {
+	padding-top: 10px;
+	margin-left: 200px;
+}
+
+.nav-area .menu-area li {
+	list-style: none;
+	text-transform: uppercase;
+	font-size: 18px;
+  	float: left;
+  	position: relative;
+  	padding: 0 15px;
+  	transition: all 0.4s;
+  	margin: 0 10px;
+}
+.nav-area .menu-area li a {
+	color:#7a899e;
+	font-weight: bold;
+	border-bottom: 4px solid transparent;
+  	display: block;
+  	padding: 10px 0;
+}
+.nav-area .menu-area li a:hover {
+	color: #ab3b13;
+  	text-decoration: none;
+  	
+}
+.nav-area .menu-area li:hover a {
+	border-bottom: 4px solid #ab3b13;
+}
+
+.nav-area .menu-area li:hover ul {
+  	opacity:1; 
+	top:40px;
+	left:-45px;
+	position: absolute;
+	visibility:visible;
+}
+.nav-area .menu-area li ul li a:hover {
+  	border-bottom: none;
+}
+
+.nav-area .menu-area li:hover ul li a{
+  border: 0;
+}
+
+.nav-area .menu-area li ul {
+  	position: absolute;
+  	min-width: 260px;
+  	top: 65px;
+  	left: 0;
+  	opacity: 0;
+  	padding-top: 10px;
+  	visibility: hidden;
+  	transition: all 0.4s;
+}
+.nav-area .menu-area li ul li {
+  	background: #031327;
+  	width: 100%;
+  	padding: 0 10px;
+}
+
+/*==========Banner Area============*/
+
+.slide-banner {
+	width: 1140px;
+	height: 183px;
+  	position: absolute;
+  	bottom: 0;
+ 	background: #06101c;
+ 	opacity: 0.8;
+}
+.image-banner{
+	margin: 24px 60px;
+}
+
+/*.header-bottom {
+	margin-top: 100px;
+}*/
