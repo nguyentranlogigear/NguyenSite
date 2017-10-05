@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
 	<title>Metiz</title>
 	{% load static %}
@@ -34,13 +34,49 @@
 				</div>
 			</div> <!-- /header-top -->
 			<div class="header-middle"> <!-- header-middle -->
-				<div class="container">
-					<div class="header-menu"> <!-- header-menu -->
-
+				<div class="header-menu"> <!-- header-menu -->
+					<div class="container">
+						<nav class="nav-area">
+							<ul class="menu-area">
+								<li><a href="">lịch chiếu</a></li>
+								<li><a href="">phim</a>
+									<ul class="sub-menu">
+										<li><a href="">phim đang chiếu</a></li>
+										<li><a href="">phim sắp chiếu</a></li>
+									</ul>
+								</li>
+								<li><a href="">khuyến mãi</a></li>
+								<li><a href="">blog phim</a></li>
+								<li><a href="">thành viên </a></li>
+							</ul>
+						</nav>
 					</div> <!-- /header-menu -->
 				</div>
+				<div class="header-banner">
+					<div class="container">
+						<a href=""><img  src="{% static 'movies/images/thum_image.png' %}" class="img-responsive"></a>
+						<div class="slide-banner">
+							<div class="image-banner">
+								<a href=""><img src="{% static 'movies/images/banner/slide/slide1.png' %}"></a>
+								<a href=""><img src="{% static 'movies/images/banner/slide/slide4.png' %}"></a>
+								<a href=""><img src="{% static 'movies/images/banner/slide/slide3.png' %}"></a>
+								<a href=""><img src="{% static 'movies/images/banner/slide/slide4.png' %}"></a>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div> <!-- /header-middle -->
+			<div class="clearfix"></div>
 			<div class="header-bottom"> <!-- header-bottom -->
+				<div class="container">
+					<a href=""><img src="{% static 'movies/images/banner/icon/icon_arthouse.png' %}"></a>
+					<a href=""><img src="{% static 'movies/images/banner/icon/icon_cinemas.png' %}"></a>
+					<a href=""><img src="{% static 'movies/images/banner/icon/icon_contact.png' %}"></a>
+					<a href=""><img src="{% static 'movies/images/banner/icon/icon_news&offers.png' %}"></a>
+					<a href=""><img src="{% static 'movies/images/banner/icon/icon_now.png' %}"></a>
+					<a href=""><img src="{% static 'movies/images/banner/icon/icon_register.png' %}"></a>
+					<a href=""><img src="{% static 'movies/images/banner/icon/icon_special.png' %}"></a>
+				</div>
 			</div> <!-- /header-bottom -->
 		</div> <!-- /main-header -->
 	</header><!-- /header -->
