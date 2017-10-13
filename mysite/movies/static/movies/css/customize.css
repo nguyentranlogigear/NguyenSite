@@ -1,0 +1,33 @@
+
+/*===================Slider banner Area===============*/
+
+.lSSlideOuter{
+	position: relative;
+}
+.lSSlideOuter .lSPager.lSGallery{
+	padding: 22px 0;
+	background: rgba(0, 0, 0, 0.7);
+	opacity: 1;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.lSAction > .lSPrev{
+	left: 142px;
+	top: 104px;
+}
+.lSAction > .lSNext{
+	right: 142px;
+	top: 104px;
+}
+
+.lSAction > .lSNext:after, .lSAction > .lSPrev:after{
+	display: block;
+	font-size: 40px;
+	font-family: 'FontAwesome';
+	color: #fff;
+	width: 100%;
+}
+.lSSlideOuter .lSPager.lSpg > li {
+	display: none;
+}

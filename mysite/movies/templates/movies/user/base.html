@@ -1,0 +1,188 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block title %}{% endblock title %}</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed:400,500,600,700&amp;subset=vietnamese" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'movies/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'movies/css/bootstrap-theme.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'movies/plugin/datetimepicker/css/bootstrap-datetimepicker.min.css' %}">
+	<link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" href="{% static 'movies/css/slideshow-banner.css' %}">
+	<link rel="stylesheet" href="{% static 'movies/css/lightslider.css' %}">
+	<link rel="stylesheet" href="{% static 'movies/css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'movies/css/reponsive.css' %}">
+	<link rel="stylesheet" href="{% static 'movies/css/customize.css' %}">
+	{% block extrastyle %} {% endblock extrastyle %}
+
+	<script src="{% static 'movies/js/jquery-3.2.1.min.js' %}" type="text/javascript" charset="utf-8"></script>
+	<script src="{% static 'movies/plugin/datetimepicker/js/bootstrap-datetimepicker.min.js' %}" type="text/javascript" charset="utf-8"></script>
+	<script src="{% static 'movies/js/jssor.slider-26.3.0.min.js' %}" type="text/javascript" charset="utf-8"></script>
+	<script src="{% static 'movies/js/bootstrap.min.js' %}" type="text/javascript" charset="utf-8" ></script>
+	<script src="{% static 'movies/js/slide-show-banner.js' %}" type="text/javascript" charset="utf-8" ></script>
+	<script src="{% static 'movies/js/lightslider.js' %}" type="text/javascript" charset="utf-8" ></script>
+	<script src="{% static 'movies/js/common.js' %}" type="text/javascript" charset="utf-8" ></script>
+	<script src="{% static 'movies/js/modernizr.js' %}" type="text/javascript" charset="utf-8" ></script>
+	{% block extrajs %} {% endblock extrajs %}
+
+</head>
+<body>
+	<header id="header"> <!--header -->
+		<div class="container fix-logo"> <!-- container fix-logo -->
+			<div class="logo-metiz"> <!-- logo-metiz -->
+				<h1>
+					<a href="{% url 'movies:home' %}" title="">
+						<img src=" {% static 'movies/images/logo/logo-metiz.png' %}" alt="logo-metiz">
+					</a>
+				</h1>
+			</div> <!-- /logo-metiz -->
+		</div> <!-- /container fix-logo -->
+		<div class="main-header"> <!-- main-header -->
+			<div class="header-top"> <!-- header-top -->
+				<div class="container">
+					<div class="header-top-right"> <!-- header-top-right -->
+						<ul>
+							<li><a href="{% url 'movies:login' %}">ĐĂNG NHẬP</a></li>
+							<li><a href="{% url 'movies:login' %}"">ĐĂNG KÍ</a></li>
+						</ul>
+					</div> <!-- /header-top-right -->
+				</div>
+			</div> <!-- /header-top -->
+			<div class="header-middle"> <!-- header-middle -->
+				<div class="header-menu"> <!-- header-menu -->
+					<div class="container">
+						<nav class="nav-area clearfix">
+							<span class="ic-menu"></span>
+							<ul class="menu-area">
+								<li><a href="#">lịch chiếu</a></li>
+								<li><a href="#">phim</a>
+									<ul class="sub-menu">
+										<li><a href="#">phim đang chiếu</a></li>
+										<li><a href="#">phim sắp chiếu</a></li>
+									</ul>
+								</li>
+								<li><a href="#">khuyến mãi</a></li>
+								<li><a href="#">blog phim</a></li>
+								<li><a href="#">thành viên </a></li>
+							</ul>
+						</nav>
+					</div> <!-- /header-menu -->
+				</div>
+			</div>
+		</div> <!-- /header-middle -->
+	</header><!-- /header -->
+	<div class="main-content">
+		{% block main-content-header %}
+			{% block metiz-slider %} {% endblock metiz-slider %}
+			{% block metiz-logo %} {% endblock metiz-logo %}
+		{% endblock main-content-header %}
+
+		{% block main-content-center %}
+			{% block metiz-film %} {% endblock metiz-film %}
+			{% block metiz-promotion %} {% endblock metiz-promotion %}
+		{% endblock main-content-center %}
+
+		{% block main-content-bottom %}
+			{% block metiz-ads %} {% endblock metiz-ads %}
+		{% endblock main-content-bottom %}
+	</div>
+	<footer id= "footer"> <!--footer-->
+		<div class='metiz-footer'>
+			<div class="container">
+				<div class="row">
+					<div class='col-md-3'>
+						<ul class="list-unstyled">
+							<img src="{% static 'movies/images/logo/logo-metiz-cenima.png' %}">
+							<li class="metiz-address"> 
+								helio center, đường 2/9, phường hòa cường bắc, quận hải châu, thành phố đà nẵng.
+							</li>
+							<li class="metiz-map">
+								<a href=""><img src="{% static 'movies/images/icon/icon_map.png' %}"> xem bản đồ</a>
+							</li>	
+						</ul>
+					</div>
+					<div class='col-md-3'>
+						<ul class="list-unstyled ">
+							<h3 class="metiz-title">metiz cenima</h3>
+							<li><a href="">giới thiệu về metiz</a></li>
+							<li><a href="">Thẻ quà tặng</a></li>
+							<li><a href="">Tuyển dụng</a></li>
+							<li><a href="">liên hệ quảng cáo</a></li>
+						</ul>
+					</div>
+					<div class='col-md-3'>
+						<ul class="list-unstyled ">
+							<h3 class="metiz-title">phim của metiz</h3>
+							<li><a href="">phim</a></li>
+							<li><a href="">rạp phim</a></li>
+							<li><a href="">phân loại phim</a></li>
+							<li><a href="">công nghệ rạp phim</a></li>
+							<li><a href="">bình luận phim</a></li>
+						</ul>
+					</div>
+					<div class='col-md-3'>
+						<ul class="list-unstyled ">
+							<h3 class="metiz-title">thông tin chung</h3>
+							<li><a href="">quy định tại rạp</a></li>
+							<li><a href="">điều khoản chung</a></li>
+							<li><a href="">điều khoản gia dịch</a></li>
+							<li><a href="">chính sách thanh toán</a></li>
+							<li><a href="">chính sách bảo mật</a></li>
+							<li><a href="">câu hỏi thường dùng</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						<ul class="list-button">
+							<li>
+								<a href="" class="btn btn-info"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+								Thich</a>
+								<a href="" class="btn btn-info">Chia se</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<ul class="list-unstyled ">
+							<li>hotline: 1900 6017</li>
+							<li>email:hoidap@ggv.vn</li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<ul class="list-unstyled ">
+							<li>Giờ làm việc: 8:00 - 22:00</li>
+							<li>tất cả các ngày bao gồm cả lễ tết</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>	
+		<hr>
+		<div class="metiz-footer-bottom">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="copyright">
+							một sản phẩm đến từ khởi phát, ltd
+						</div>
+					</div>
+					<div class='col-md-4'>
+						<div class='metiz-logo-footer'>
+							<img src="{% static 'movies/images/logo/logo_footer.png' %}" alt="">
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class='design'>
+							bản quyền @ 2017 metiz cenima
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer> <!--/footer-->
+</body>
+</html>

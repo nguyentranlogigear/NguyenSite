@@ -1,104 +1,144 @@
+/*----- reset -----*/
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, a, address, em, img, strong, dl, dt, dd, ul, li, fieldset, form, label, legend {border: 0; font-family: inherit; font-size: 100%; margin: 0; outline: 0; padding: 0; }
+:focus {outline: 0; }
+ol,ul {list-style: none; }
+img {width: auto; height: auto; max-width: 100%; vertical-align: middle; -ms-interpolation-mode: bicubic; }
+table {border-collapse: collapse; border-spacing: 0; width: 100%; }
+html,body {height: 100%; } 
+
+
 body {
-	font-family: 'Open Sans', sans-serif;
-	position: relative;
-	font-weight: 400px;
-	background: #0f1d32;
+  position: relative;
+  font-weight: 400px;
+  background: #0f1d32;
 }
 /*==========Header Area============*/
 #header {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 .fix-logo {
-  	position: relative;
+  position: relative;
 }
 
 .logo-metiz {
-	z-index:1;
-  	width: 200px;
-  	height: 200px;
-  	position: absolute;
-  	top: 0;
- 	background: #021325;
+  z-index:1;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 0;
+  background: #021325;
 }
 
+.logo-metiz {
+  text-align: center;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+
+}
+.logo-metiz h1{
+  width: 100%;
+}
 .logo-metiz img {
-	right: 156px;
-	bottom: 106px;
-	position: relative;
+  display: inline-block;
 }
 
 .main-header .header-top {
-  	background: #0e1e2e;
+    background: #0e1e2e;
+    padding: 7px 0;
 }
 .main-header .header-menu {
   background: #031327;
 }
 .main-header .header-top-right {
-  	float: right;
+    float: right;
 }
 .header-top-right ul {
-	margin-top: 10px;
-	margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .header-top-right ul li {
-	list-style: none;
-	text-decoration: none;
-	display: inline-block;
+  list-style: none;
+  text-decoration: none;
+  display: inline-block;
+}
+.header-top-right ul li:not(:last-child):after{
+  content: '/';
+  display: inline-block;
+  margin: 0 5px;
+  color: #fff;
+  font-size: 12px;
 }
 .header-top-right ul li a {
-	list-style: none;
-	text-decoration: none;
-	color: #7a899e;
-	font-style: 12px;
+  list-style: none;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 12px;
+  font-family: 'Saira Semi Condensed', sans-serif;
+  line-height: 1.2;
 }
 .header-top-right ul li a:hover {
-	outline: none; 
-	text-decoration: none;
-	color: #ab3b13;
+  outline: none; 
+  text-decoration: none;
+  color: #ab3b13;
 }
 /*==========Menu Area===========*/
 .nav-area {
-	padding-top: 10px;
-	margin-left: 200px;
+  position: relative;
+  margin-left: 300px;
+}
+
+.nav-area .menu-area:after{
+  content: '';
+  display: block;
+  clear: both;
+  overflow: hidden;
+  z-index: 100;
 }
 
 .nav-area .menu-area li {
-	list-style: none;
-	text-transform: uppercase;
-	font-size: 18px;
-  	float: left;
-  	position: relative;
-  	padding: 0 15px;
-  	transition: all 0.4s;
-  	margin: 0 10px;
-  	z-index:1;
+  list-style: none;
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 1.2;
+  float: left;
+  font-family: 'Saira Semi Condensed', sans-serif;
+  position: relative;
+  padding: 0 15px;
+  transition: all 0.4s;
+  margin: 0 10px;
+  z-index:1;
+  padding-top: 3px;
 }
 .nav-area .menu-area li a {
-	color:#7a899e;
-	font-weight: bold;
-	border-bottom: 4px solid transparent;
-  	display: block;
-  	padding: 10px 0;
+  color:#ffffff;
+  font-weight: 500;
+  border-bottom: 4px solid transparent;
+  display: block;
+  padding: 14px 0;
 }
 .nav-area .menu-area li a:hover {
-	color: #ab3b13;
-  	text-decoration: none;
-  	
+  color: #ab3b13;
+  text-decoration: none;
+    
 }
+
 .nav-area .menu-area li:hover a {
-	border-bottom: 4px solid #ab3b13;
+  border-bottom: 4px solid #ab3b13;
 }
 
 .nav-area .menu-area li:hover ul {
-  	opacity:1; 
-	top:40px;
-	left:-45px;
-	position: absolute;
-	visibility:visible;
+  opacity:1; 
+  top:56px;
+  visibility:visible;
 }
 .nav-area .menu-area li ul li a:hover {
-  	border-bottom: none;
+    border-bottom: none;
 }
 
 .nav-area .menu-area li:hover ul li a{
@@ -106,45 +146,677 @@ body {
 }
 
 .nav-area .menu-area li ul {
-  	position: absolute;
-  	min-width: 260px;
-  	top: 65px;
-  	left: 0;
-  	opacity: 0;
-  	padding-top: 10px;
-  	visibility: hidden;
-  	transition: all 0.4s;
+  position: absolute;
+  text-align: center;
+  min-width: 204px;
+  top: 65px;
+  left: 0;
+  background: #031327;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s;
+  border-top:1px solid #263547;
+  padding: 0;
+    
 }
 .nav-area .menu-area li ul li {
-  	background: #031327;
-  	width: 100%;
-  	padding: 0 10px;
+  display: block;
+  width: 100%;
+  padding: 0 10px;
+  margin: 0;
 }
+.nav-area .ic-menu {
+  display: none;
+  width: 35px;
+  height: 35px;
+  background: url('../images/ic-menu.png') no-repeat;
+  background-position: 0 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 /*===================Movie at Metiz=====================*/
 
-.metiz-button {
-    font-size: 36px;
-    font-weight: bold;
-    text-transform: uppercase;
-    display: inline-block;
-    margin: 40px 0 0 0;
-    color: #ffdee9;
-    transition-duration: 0.4s;
-    cursor: pointer;
+.metiz-films .{
+  position: relative;
+  display: block;
 }
+
+.metiz-films .lslide {
+  position: relative;
+  float: left;
+  width: 25%;
+  overflow: hidden;
+}
+
+.overlay-icon {
+  display: block;
+  position: absolute;
+  z-index: 20;
+  background: #d14a09;
+  opacity: 0.7;
+  overflow: hidden;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+a.expand {
+  display: block;
+  position: absolute;
+  z-index: 100;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  color: #fff;
+  line-height: 50px;
+  font-weight: 700;
+  font-size: 50px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  border-radius: 30px;
+}
+#effect-films {
+  height: 410px !important;
+}
+#effect-films .overlay-icon {
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 0;
+}
+#effect-films .overlay-icon a.expand {
+  left: 0;
+  right: 0;
+  top: 50%;
+  margin: -30px auto 0 auto;
+}
+#effect-films .lslide.hover .overlay-icon {
+  height: 51%;
+}
+#effect-films .lslide.hover .detail-button {
+  display: inline-block;
+  opacity: 1;
+}
+#effect-films .lslide.hover .booking-button {
+  display: inline-block; 
+  opacity: 1;
+}
+#effect-films .overlay.lslide.hover ul li.caption-btn-left {
+  display: block;
+  position: relative;
+  z-index: 100;
+}
+#effect-films .overlay.lslide.hover ul li.caption-btn-right {
+  display: block;
+  position: relative;
+  z-index: 100;
+}
+.slider-films {
+  height: 410px;
+}
+.overlay {
+  height: 100%;
+}
+.caption-btn-left {
+  top: 15px;
+  position: relative;
+  float: left;
+  display: none;
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff; 
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 5px 9px;
+}
+.caption-btn-left a {
+  text-decoration: none;
+  color: #fff;
+}
+li.caption-btn-left:hover{
+    background-color: #ff5400;
+}
+.caption-btn-right {
+  top: 15px;
+  position: relative;
+  float: left;
+  display: none;
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 5px 12px;
+  margin-left: 16px;
+}
+.caption-btn-right a {
+  text-decoration: none;
+  color: #fff;
+}
+li.caption-btn-right:hover{
+    background-color: #ff5400;
+}
+
+.metiz-films-content {
+  background: url('../images/backgroud.png') no-repeat center center fixed;
+   -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.metiz-movies {
+  margin-bottom: 48px;
+  position: relative;
+  z-index: 100;
+}
+
 .movie-is-showing {
-	border-radius: 50px;
-	padding: 12px 24px;
-	
+  color:#fff;
+  font-family: 'Saira Semi Condensed', sans-serif;
+  font-weight: bold;
+  background: transparent;
+  border-radius: 50px;
+  padding: 15px 40px;
+  margin: 40px 0 0 0;
+  border: 1px solid #ffdee9;
+  width: 100%;
+  
 }
 .movie-is-showing:hover {
-	background-color: #ff5400;
+  background-color: #ff5400;
 }
 .uncoming-movie {
-	border-radius: 50px;
-	padding: 14px 28px;
-	border: 1px solid #ffdee9;
+  color:#fff;
+  font-family: 'Saira Semi Condensed', sans-serif;
+  font-weight: bold;
+  background: transparent;
+  border-radius: 50px;
+  padding: 15px 47px;
+  margin: 40px 0 0 0;
+  border: 1px solid #ffdee9;
+  width: 100%;
 }
 .uncoming-movie:hover {
-	background-color: #ff5400;
+  background-color: #ff5400;
+}
+
+ul.caption-metiz {
+  height: 40%;
+}
+.caption-metiz {
+  text-align: center;
+  margin: 0;
+  text-transform: uppercase;
+  font-family:'Saira Semi Condensed', sans-serif;
+  color: #fff;
+  display: inline-block;
+}
+.movie-name {
+  padding-top: 10px;
+  font-size: 18px;
+  font-weight:bold;
+}
+.movie-time {
+  padding-top: 10px;
+  font-weight: 400;
+  font-size: 12px;
+}
+.movie-startdate {
+  width: 100%;
+  padding-top: 10px;
+  font-size: 14px;
+
+}
+.caption-metiz ul li:not(:first-child):after{
+  content: '|';
+  color: #fff;
+  font-size: 12px;
+  margin-right:3px;
+}
+.timeshow {
+  float: left;
+  margin-left: 35px;
+}
+.noteshow {
+  margin-right: 35px;
+  color: red;
+  font-weight: bold;
+}
+
+/*====================Promotion Area==============*/
+.metiz-promotion {
+  background-color: #fff;
+  margin: 0;
+  padding-bottom: 88px;
+}
+.title-pro {
+  text-transform: uppercase;
+  padding: 70px 0px 40px;
+  text-align: center;
+  color: black;
+  font-size:32px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+}
+.content-metiz {
+  margin: 0;
+  padding: 0;
+  border: 2px solid #cac6c0;
+  text-shadow: 1px;
+}
+.title-content{
+  padding: 24px 50px;
+  color: orange;
+  text-transform: uppercase;
+  font-size:32px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+}
+.content-pro {
+  padding: 0 40px 50px;
+}
+.overlay-pro {
+  position: relative;
+  background-color: #d14a09;
+  opacity: 1;
+}
+
+.image-pro {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle-pro {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+.overlay-pro:hover .image-pro {
+  opacity: 0.3;
+}
+
+.overlay-pro:hover .middle-pro {
+  opacity: 1;
+}
+
+.text-pro {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 18px;
+  padding-bottom: 80px;
+  font-family: 'Saira Semi Condensed', sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+.button-pro {
+  display: inline-block;
+  position: absolute;
+  background-color: transparent;
+  border: 2px solid #fff; 
+  border-radius: 20px;
+  cursor: pointer;
+  margin: -25px 25px;
+  padding: 5px 15px;
+
+}
+a.button-pro {
+  text-decoration: none;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 12px;
+ 
+}
+a.button-pro:hover{
+   background-color: #ff5400;
+   color: #fff;
+}
+.overlay-pro-plus {
+  position: relative;
+  background-color: black;
+  opacity: 1;
+}
+.overlay-pro-plus:hover .image-pro {
+  opacity: 0.1;
+}
+.overlay-pro-plus:hover .middle-pro {
+  opacity: 1;
+}
+
+a.icon-add-pro {
+  display: block;
+  font-size: 40px;
+  color: #ff5400;
+  width: 100%;
+  text-decoration: none;
+  text-align: center;
+}
+.text-pro-plus {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: 'Saira Semi Condensed', sans-serif;
+  color: #ff5400;
+}
+
+/*=================metiz-ads-banner=================*/
+.metiz-ads {
+  background-color: #1d3048;
+  margin:0;
+}
+.metiz-ads-banner {
+  padding: 40px 0;
+}
+.metiz-social {
+  width: 100%;
+  margin: 10px 0px;
+  text-align: center;
+}
+.metiz-icon-facabook {
+  display: inline-block;
+  padding: 20px 10px;
+}
+.metiz-icon-instagram {
+  display: inline-block;
+  padding: 20px 10px;
+}
+.metiz-icon-youtube {
+  display: inline-block;
+  padding: 20px 10px;
+}
+
+/*====================footer area=========*/
+#footer {
+  background-color: #031327 no-repeat;
+}
+.metiz-footer {
+  margin: 20px 0;
+  padding: 50px 0;
+}
+h3.metiz-title {
+  padding-bottom: 16px;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: 'Saira Semi Condensed', sans-serif;
+  font-weight: bold;
+  font-size:24px;
+
+}
+.metiz-address {
+  padding: 10px 0;
+}
+.list-unstyled img {
+  padding-bottom: 20px ;
+}
+.metiz-map {
+  padding: 10px 0;
+}
+
+.list-unstyled li{
+  padding-top: 10px;
+  line-height: 1.5;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #fff;
+  display: block;
+  text-decoration: none;
+  font-family: 'Saira Semi Condensed', sans-serif;
+}
+.list-unstyled li a {
+  font-size: 18px;
+  font-weight: 500;
+  color: #7e8eaa;
+  display: block;
+  text-decoration: none;
+  font-family: 'Saira Semi Condensed', sans-serif;
+}
+.list-unstyled li a:hover {
+  color: #ab3b13;
+}
+.metiz-footer-bottom {
+  padding-bottom: 22px;
+}
+
+.copyright {
+  padding: 23px 0;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 500;
+  font-style: 'Saira Semi Condensed', sans-serif;
+}
+.metiz-logo-footer {
+  text-align: center;
+  display: block;
+}
+.design {
+  padding: 23px 0;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 500;
+  font-family: 'Saira Semi Condensed', sans-serif;
+}
+
+/*=============== Category-films=================*/
+.category-film {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  position: relative;
+}
+.category-film .nav.navbar-nav {
+  width: 100%;
+  text-align: right;
+  padding-right: 10px;
+}
+.category-film .navbar {
+  line-height: inherit;
+  margin-bottom: auto;
+  min-height: inherit;
+  border: none;
+  background: #063870 ;
+  border-radius: 0px 3px 0px 0px;
+}
+.new-title h2 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 18px;
+  letter-spacing: 1px;
+  padding: 20px 20px;
+}
+
+.category-film .new_title.center {
+  margin-bottom: 0px;
+}
+.category-film .navbar-collapse {
+  padding: 0px;
+}
+.category-film .navbar-nav > li:first-child {
+  float: left;
+}
+.category-film .navbar-nav > li:first-child > a {
+  padding: 0px;
+}
+.category-film .navbar-nav > li {
+  float: none;
+  display: inline-block;
+}
+.category-film .navbar-nav > li.divider {
+  border-right: 1px solid #ccc;
+  color: #ccc;
+  display: inline;
+  height: 20px;
+  width: 1px;
+  margin-left: 4px;
+}
+.category-film .navbar-nav > li.active a {
+  color: #014693;
+  background: #fff;
+  border-radius: 3px 3px 0px 0px;
+}
+.category-film .navbar-nav > li.active a:hover, .category-film .navbar-nav > li.active a:focus {
+  color: #014693;
+  background: #fff;
+}
+.category-film .navbar-nav > li > a {
+  font-family: 'Saira Semi Condensed', sans-serif;
+  color: #bed6e2;
+  font-size: 16px;
+  letter-spacing: 1px;
+  padding: 15px 15px 12px 15px;
+  margin-top: 11px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.category-film .nav>li>a:hover, .category-film .nav>li>a:focus {
+  color: #fff;
+  background: #063870;
+}
+.metiz-films-container {
+  margin: 20px 10px;
+  padding: 10px auto;
+}
+.item-image {
+  padding: 10px 0;
+  position: relative;
+  overflow: hidden;
+}
+.item-image img {
+  max-width: 100%;
+  
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.item-image:hover img {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.item-info .movie-name {
+  font-family: 'Saira Semi Condensed', sans-serif;
+  font-size:18px;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  list-style: none;
+  text-align: center;
+}
+.item-info ul {
+  margin: 10px 0;
+  text-align: center;
+}
+.item-info ul li {
+  display: inline-block;
+}
+.item-info ul li a {
+  font-family: 'Saira Semi Condensed', sans-serif;
+  text-decoration: none;
+  list-style: none;
+  font-size: 15px;
+  display: inline-block;
+  text-transform: uppercase;
+}
+.metiz-button {
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: white;
+  border-radius: 20px;
+  padding: 10px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+li a.metiz-button:hover {
+  background-color: #ab3b13;
+  color:#fff;
+}
+/*===============metiz fiml detail area=============*/
+.metiz-list-unstyled {
+  margin: 10px auto;
+}
+.sub {
+  font-family: 'Saira Semi Condensed', sans-serif;
+  color: red;
+  font-weight: 400;
+}
+.metiz-list-unstyled li {
+  padding-top: 10px;
+}
+
+.metiz-list-unstyled li span, .metiz-list-unstyled li a {
+  font-family: 'Saira Semi Condensed', sans-serif;
+  color: #fff;
+  list-style: none;
+  text-decoration: none;
+}
+.col-left {
+  display: inline;
+  text-transform: uppercase;
+  padding-top: 10px;
+}
+.col-right {
+  list-style: none;
+  display: inline;
+  line-height: -moz-block-height;
+  text-transform: capitalize;
+}
+.booking-button {
+  text-align: center;
+  background-color: transparent; /* Green */
+  border: 1px solid #fff;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 50%;
+}
+a.booking-button:hover {
+  color: #fff;
+  background-color: #019db1;
+}
+.des {
+  border: 1px solid #cac6c0;
+  padding: 10px 10px;
+  background-color: #fff;
+  margin:16px 14px;
+  color: black;
+  font-family:  'Saira Semi Condensed', sans-serif;
+}
+h4.metiz-title{
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 5px;
 }

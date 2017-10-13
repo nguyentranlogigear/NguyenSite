@@ -16,7 +16,92 @@
 }
 /*May tinh bang loai to, hien thi chieu doc*/
 @media screen and (max-width: 768px) {
+	.nav-area {}
+	.nav-area .ic-menu {
+		display: block;
 
+		-webkit-transition: all 0.4s;
+		-o-transition: all 0.4s;
+		transition: all 0.4s;
+	}
+	.nav-area .ic-menu.active{
+		background-position: -35px 0;
+	}
+	.nav-area .menu-area{
+		position: absolute;
+		top: 150px;
+		right: 0;
+		display: block;
+		visibility: hidden;
+		opacity: 0;
+		width: 300px;
+		text-align: center;
+		background: #3687b5;
+		z-index: 1000;
+		padding: 10px 15px;
+		-webkit-transition: all 0.4s;
+		-o-transition: all 0.4s;
+		transition: all 0.4s;
+	}
+	.nav-area .menu-area.active{
+		top: 50px;
+		visibility: visible;
+		opacity: 1;
+	}
+	.nav-area .menu-area li{
+		margin: 0;
+		padding: 0;
+		border-bottom: 1px solid #eee;
+		width: 100%;
+	}
+	.nav-area .menu-area li:hover{
+		border-bottom: 1px solid transparent;
+	}
+	.nav-area .menu-area li:last-child{
+		border: none;
+	}
+	.nav-area .menu-area li a{
+		border-bottom: 0;
+		padding: 10px 0;
+	}
+	.nav-area .menu-area li:hover a{
+		background: #2bbaea;
+		border-bottom: 0;
+	}
+	.nav-area .menu-area li:hover ul{
+		display: block;
+	}
+	.nav-area .menu-area li ul{
+		text-align: left;
+		padding-left: 30px;
+		display: none;
+		position: static;
+		opacity: 1;
+		visibility: visible;
+		background: none;
+		border-top: 1px solid #eee;
+	}
+	.nav-area .menu-area li:hover ul li a{
+		background: none;
+	}
+	.nav-area .menu-area li ul li{
+		font-size: 14px;
+	}
+	.nav-area .menu-area li ul li:hover a{
+		background: #2bbaea;
+	}
+	.logo-metiz{
+		position: relative;
+		height: auto;
+		width: 30%;
+		background: none;
+		padding: 10px 0;
+	}
+	.main-header{
+		position: absolute;
+		top: 0;
+		right: 15px;
+	}
 }
 /*May tinh bang loai to, hien thi chieu ngang*/
 @media screen and (max-width: 1024px) {
