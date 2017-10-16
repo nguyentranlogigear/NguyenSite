@@ -1,0 +1,403 @@
+{% extends 'movies/base.html' %}
+{% load static %}
+{% block main-content-header %}
+	{% block metiz-slider %}
+		<section> <!-- Slider banner -->
+		<div class="container">
+			<div id="jssor_1">
+		        <div data-u="slides" class="slider-banner">
+		            <div>
+		                <img data-u="image" class="image-banner" src="{% static 'movies/images/thum_image.png' %}" />
+		                <img data-u="thumb" class ="thum-banner" src="{% static 'movies/images/banner/slide/slide4.png' %}" />
+		            </div>
+		            <div>
+		                <img data-u="image" class="image-banner" src="{% static 'movies/images/thum_image.png' %} "/>
+		                <img data-u="thumb" class ="thum-banner" src="{% static 'movies/images/banner/slide/slide1.png' %}" />
+		            </div>
+		            <div>
+		                <img data-u="image" class="image-banner" src="{% static 'movies/images/thum_image.png' %}" />
+		                <img data-u="thumb" class ="thum-banner" src="{% static 'movies/images/banner/slide/slide3.png' %}" />
+		            </div>
+		            <div>
+		                <img data-u="image" class="image-banner" src="{% static 'movies/images/thum_image.png' %}" />
+		                <img data-u="thumb" class ="thum-banner" src="{% static 'movies/images/banner/slide/slide4.png' %}" />
+		            </div>
+		            <div>
+		                <img data-u="image" class="image-banner" src="{% static 'movies/images/thum_image.png' %} "/>
+		                <img data-u="thumb" class ="thum-banner" src="{% static 'movies/images/banner/slide/slide1.png' %}" />
+		            </div>
+		        </div>
+		        <!-- Thumbnail Navigator -->
+		        <div data-u="thumbnavigator" class="jssort101" data-autocenter="1" data-scale-bottom="0.75" style="">
+		            <div data-u="slides">
+		                <div data-u="prototype" class="p" >
+		                    <div data-u="thumbnailtemplate" class="t"></div>
+		                    <svg viewbox="0 0 16000 16000" class="cv">
+		                    </svg>
+		                </div>
+		            </div>
+		        </div>
+		        <!-- Arrow Navigator -->
+		        <div data-u="arrowleft" class="jssora106" >
+		            <i class="fa fa-chevron-left" aria-hidden="true" style="color: #fff; position: absolute; top:312px; left:35px; font-size: 20px; font-family: 'FontAwesome' "></i>
+		        </div>
+		        <div data-u="arrowright" class="jssora106">
+		           <i class="fa fa-chevron-right" aria-hidden="true" style="color: #fff; position: absolute; top:312px; left:935px; font-size: 20px; font-family: 'FontAwesome'"></i>
+		        </div>
+			</div>
+        </div>
+		</section> <!-- /Slider banner -->
+	{% endblock metiz-slider %}
+
+	{% block metiz-logo %}
+		<section> <!--  logo banner -->
+			<div class="container">
+				<div class=" logo-banner">
+					<a href="#"><img src=" {% static 'movies/images/icon-logo-banner.png' %}" class="img-responsive"></a>
+				</div>
+			</div>
+		</section> <!-- /logo banner -->
+	{% endblock metiz-logo %}
+{% endblock main-content-header %}
+
+{% block main-content-center %}
+	{% block metiz-film %}
+		<section class="metiz-films-content"> <!-- metiz-films-content -->
+			<div class="container-fluid">
+			<section class="metiz-movies">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-3">
+
+						</div>
+						<div class='col-md-3'>
+							<a href="#"><button type="button" class="movie-is-showing">PHIM ĐANG CHIẾU</button></a>
+						</div>
+						<div class='col-md-3'>
+							<a href=""><button type="button" class="uncoming-movie">PHIM SẮP CHIẾU</button></a>
+						</div>
+						<div class="col-md-3">
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="slider-films">
+				<div class="container-fluid">
+					<ul id="effect-films" class="metiz-films clearfix">
+							<li class="overlay">
+								<img class="metiz-img" src="{% static 'movies/images/films/gautruckungfu.png' %}" alt="">
+								<ul class="caption-metiz"> 
+									<li class="movie-name">Gấu trúc kung fu</li>
+									<ul class="movie-time">
+										<li class="timeshow">119 phút</li>
+										<li class="noteshow">C116</li>
+									</ul>
+									<li class="movie-startdate">
+										Khởi chiếu 24/10/1997
+									</li>
+									<li class="caption-btn-left" style="">
+										<a href="#" title="">chi tiết</a>
+									</li>
+									<li class="caption-btn-right">
+										<a href="#" title="">đặt vé</a>
+									</li>
+								</ul>
+								<ul class="overlay-icon">
+	               					<a href="#" class="expand"> 
+	               						<i class="fa fa-play-circle-o" aria-hidden="true"></i> 
+	               					</a>
+	               				</ul>
+							</li>
+							<li class="overlay">
+								<img class="metiz-img" src="{% static 'movies/images/films/happens.png' %}" alt="">
+								<ul class="caption-metiz"> 
+									<li class="movie-name"> Những chú chim giận dữ </li>
+									<ul class="movie-time">
+										<li class="timeshow">119 phút</li>
+										<li class="noteshow">C16</li>
+									</ul>
+									<li class="movie-startdate">
+										Khởi chiếu 24/10/1997
+									</li>
+									<li class="caption-btn-left">
+										<a href="#" title="">chi tiết</a>
+									</li>
+									<li class="caption-btn-right">
+										<a href="#" title="">đặt vé</a>
+									</li>
+								</ul>
+								<ul class="overlay-icon">
+	               					<a href="#" class="expand"> <i class="fa fa-play-circle-o" aria-hidden="true"></i> </a>
+								</ul>
+							</li>
+							<li class="overlay">
+								<img class="metiz-img" src="{% static 'movies/images/films/nhungchuchimgiandu.png' %}" alt="">
+								<ul class="caption-metiz"> 
+									<li class="movie-name">Gấu trúc kung fu</li>
+									<ul class="movie-time">
+										<li class="timeshow">119 phút</li>
+										<li class="noteshow">C16</li>
+									</ul>
+									<li class="movie-startdate">
+										Khởi chiếu 24/10/1997
+									</li>
+									<li class="caption-btn-left" >
+										<a href="#" title="">chi tiết</a>
+									</li>
+									<li class="caption-btn-right">
+										<a href="#" title="">đặt vé</a>
+									</li>
+								</ul>
+								<ul class="overlay-icon">
+	               					<a href="#" class="expand"> <i class="fa fa-play-circle-o" aria-hidden="true"></i> </a>
+								</ul>
+							</li>
+							<li class="overlay">
+								<img class="metiz-img" src="{% static 'movies/images/films/nhungchuchimgiandu1.png' %}" alt="">
+								<ul class="caption-metiz"> 
+									<li class="movie-name">kingsman: Tổ chức hoàng kim </li>
+									<ul class="movie-time">
+										<li class="timeshow">119 phút</li>
+										<li class="noteshow">C16</li>
+									</ul>
+									<li class="movie-startdate">
+										Khởi chiếu 24/10/1997
+									</li>
+									<li class="caption-btn-left" >
+										<a href="#" title="">chi tiết</a>
+									</li>
+									<li class="caption-btn-right">
+										<a href="#" title="">đặt vé</a>
+									</li>
+								</ul>
+								<ul class="overlay-icon">
+	               					<a href="#" class="expand"> <i class="fa fa-play-circle-o" aria-hidden="true"></i> </a>
+								</ul>
+							</li>
+							<li class="overlay">
+								<img class="metiz-img" src="{% static 'movies/images/films/snitch.png' %}" alt="">
+								<ul class="caption-metiz"> 
+									<li class="movie-name"> Những chú chim giận dữ </li>
+									<ul class="movie-time">
+										<li class="timeshow">119 phút</li>
+										<li class="noteshow">C16</li>
+									</ul>
+									<li class="movie-startdate">
+										Khởi chiếu 24/10/1997
+									</li>
+									<li class="caption-btn-left" >
+										<a href="#" title="">chi tiết</a>
+									</li>
+									<li class="caption-btn-right">
+										<a href="#" title="">đặt vé</a>
+									</li>
+								</ul>
+								<ul class="overlay-icon">
+	               					<a href="#" class="expand"> <i class="fa fa-play-circle-o" aria-hidden="true"></i> </a>
+								</ul>
+							</li>
+							<li class="overlay">
+								<img class="metiz-img" src="{% static 'movies/images/films/nhungchuchimgiandu1.png' %}" alt="">
+								<ul class="caption-metiz"> 
+									<li class="movie-name">kingsman: Tổ chức hoàng kim </li>
+									<ul class="movie-time">
+										<li class="timeshow">119 phút</li>
+										<li class="noteshow">C16</li>
+									</ul>
+									<li class="movie-startdate">
+										Khởi chiếu 24/10/1997
+									</li>
+									<li class="caption-btn-left" >
+										<a href="#" title="">chi tiết</a>
+									</li>
+									<li class="caption-btn-right">
+										<a href="#" title="">đặt vé</a>
+									</li>
+								</ul>
+								<ul class="overlay-icon">
+	               					<div class="abc">
+	               						<a href="#" class="expand"> <i class="fa fa-play-circle-o" aria-hidden="true"></i> </a>
+	               					</div>
+								</ul>
+							</li>
+							<li class="overlay">
+								<img class="metiz-img" src="{% static 'movies/images/films/thientaibathao.png' %}" alt="">
+								<ul class="caption-metiz"> 
+									<li class="movie-name"> Những chú chim giận dữ </li>
+									<ul class="movie-time">
+										<li class="timeshow">119 phút</li>
+										<li class="noteshow">C16</li>
+									</ul>
+									<li class="movie-startdate">
+										Khởi chiếu 24/10/1997
+									</li>
+									<li class="caption-btn-left" >
+										<a href="#" title="">chi tiết</a>
+									</li>
+									<li class="caption-btn-right">
+										<a href="#" title="">đặt vé</a>
+									</li>
+								</ul>
+								<ul class="overlay-icon">
+	               					<a href="#" class="expand"> <i class="fa fa-play-circle-o" aria-hidden="true"></i> </a>
+								</ul>
+							</li>
+							<li class="overlay">
+								<img  class="metiz-img" src="{% static 'movies/images/films/nhungchuchimgiandu1.png' %}" alt="">
+								<ul class="caption-metiz"> 
+									<li class="movie-name"> kingsman: Tổ chức hoàng kim </li>
+									<ul class="movie-time">
+										<li class="timeshow">119 phút</li>
+										<li class="noteshow">C16</li>
+									</ul>
+									<li class="movie-startdate">
+										Khởi chiếu 24/10/1997
+									</li>
+									<li class="caption-btn-left" >
+										<a href="#" title="">chi tiết</a>
+									</li>
+									<li class="caption-btn-right">
+										<a href="#" title="">đặt vé</a>
+									</li>
+								</ul>
+								<ul class="overlay-icon">
+	               					<a href="#" class="expand"> <i class="fa fa-play-circle-o" aria-hidden="true"></i> </a>
+								</ul>
+							</li>
+							<li class="overlay">
+								<img class="metiz-img" src="{% static 'movies/images/films/nhungchuchimgiandu.png' %}" alt="">
+								<ul class="caption-metiz"> 
+									<li class="movie-name"> Những chú chim giận dữ </li>
+									<ul class="movie-time">
+										<li class="timeshow">119 phút</li>
+										<li class="noteshow">C16</li>
+									</ul>
+									<li class="movie-startdate">
+										Khởi chiếu 24/10/1997
+									</li>
+									<li class="caption-btn-left" >
+										<a href="#" title="">chi tiết</a>
+									</li>
+									<li class="caption-btn-right">
+										<a href="#" title="">đặt vé</a>
+									</li>
+								</ul>
+								<ul class="overlay-icon">
+	               					<a href="#" class="expand"> <i class="fa fa-play-circle-o" aria-hidden="true"></i> </a>
+								</ul>
+							</li>
+						</ul>
+				</div>
+			</section>
+			</div>
+		</section> <!-- /metiz-films-content -->
+	{% endblock metiz-film %}
+
+	{% block metiz-promotion %}
+		<section class="metiz-promotion"> <!-- metiz-promotion -->
+		<h3 class='title-pro'>Khuyến mãi và ưu đãi</h3>
+			<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="content-metiz">
+						<h5 class="title-content">
+							Nhiều ưu đãi liên tục
+						</h5>
+						<p class="content-pro">
+							Nullam imperdiet, sem at fringilla lobortis, sem nibh fringilla nibh, idae gravida mi purus sit amet erat. Ut dictum nisi massa, vitae pulvinar metus scelerisque in.
+							Ut dictum nisi massa, vitae pulvinar metus scelerisque in.
+						</p>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="overlay-pro">
+							<img src="{% static 'movies/images/promotion/black_friday.png' %}" class="image-pro">
+					  <div class="middle-pro">
+					    <div class="text-pro">xem phim thả ga, trúng ngay xe khủng</div>
+					    <a href="" title="" class="btn button-pro">chi tiết</a>
+					  </div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="overlay-pro">
+					    <img src="{% static 'movies/images/promotion/crazy_sale.png' %}" alt="" class="image-pro">
+					    <div class="middle-pro">
+					    	<div class="text-pro">xem phim thả ga, trúng ngay xe khủng</div>
+					    	<a href="" title="" class="btn button-pro">chi tiết</a>
+					  	</div>
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-md-3">
+					<div class="overlay-pro">
+						<img src="{% static 'movies/images/promotion/sale_70.png' %}" alt="" class="image-pro">
+						<div class="middle-pro">
+						    <div class="text-pro">xem phim thả ga, trúng ngay xe khủng</div>
+						    <a href="" title="" class="btn button-pro">chi tiết</a>
+					  </div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="overlay-pro">
+						<img src="{% static 'movies/images/promotion/summer.png' %}" alt="" class="image-pro">
+						<div class="middle-pro">
+						    <div class="text-pro">xem phim thả ga, trúng ngay xe khủng</div>
+						    <a href="" title="" class="btn button-pro">chi tiết</a>
+					  	</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="overlay-pro">
+						<img src="{% static 'movies/images/promotion/black_friday.png' %}" alt="" class="image-pro">
+						<div class="middle-pro">
+						    <div class="text-pro">xem phim thả ga, trúng ngay xe khủng</div>
+						    <a href="" title="" class="btn button-pro">chi tiết</a>
+					  	</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="overlay-pro-plus">
+						<img src="{% static 'movies/images/promotion/sale_70.png' %}" alt="" class="image-pro">
+						<div class="middle-pro">
+						    <a href="" class="icon-add-pro">+</a>
+						    <div class="text-pro-plus">xem nhiều hơn </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		</section> <!-- /metiz-promotion -->
+	{% endblock metiz-promotion %}
+{% endblock main-content-center %}
+
+{% block main-content-bottom %}
+	{% block metiz-ads %}
+		<section class="metiz-ads"> <!-- metiz-ads -->
+			<div class="metiz-ads-banner">
+				<div class='container'>
+					<a href=""></a><img src="{% static 'movies/images/banner/banner_facebook.png'%}">
+				</div>
+			</div>
+			<hr>
+			<div class="metiz-icon-social">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4">
+						</div>
+						<div class='col-md-4'>
+							<div class="metiz-social">
+								<li class="metiz-icon-facabook"><a href=""><img src="{% static 'movies/images/icon/icon_facebook.png'%}"></a></li>
+								<li class="metiz-icon-instagram"><a href=""><img src="{% static 'movies/images/icon/icon_instagram.png'%}"></a></li>
+								<li class="metiz-icon-youtube"><a href=""><img src="{% static 'movies/images/icon/icon_youtube.png'%}"></a></li>
+							</div>
+						</div>
+						<div class='col-md-4'>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section> <!-- /metiz-ads -->
+	{% endblock metiz-ads %}
+{% endblock main-content-bottom %}

@@ -9,10 +9,15 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
-
+from django.core.urlresolvers import reverse, reverse_lazy, resolve
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
+LOGIN_REDIRECT_URL = reverse_lazy('home')
+LOGIN_URL = reverse_lazy('login')
+LOGOUT_URL = reverse_lazy('logout')
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -74,6 +79,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
+# Email
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_PORT = 587
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
@@ -142,6 +154,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'movies/static')
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
 CKEDITOR_IMAGE_BACKEND = "pillow"
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'movies/media/')
 
 # CKEDITOR_CONFIGS = {
 #     'default': {

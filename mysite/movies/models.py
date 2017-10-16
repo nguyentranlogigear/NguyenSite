@@ -8,6 +8,7 @@ from ckeditor.fields import RichTextField
 from imagekit.models import ImageSpecField, ProcessedImageField
 from imagekit.processors import ResizeToFill
 from phonenumber_field.modelfields import PhoneNumberField
+from django.conf import settings
 
 class Category(models.Model):
 	name = models.CharField(max_length=250)
@@ -97,14 +98,11 @@ class Showtime_Detail(models.Model):
 	showtime = models.ForeignKey(Showtime, on_delete=models.CASCADE)
 	time = models.DateTimeField()
 
-class User(models.Model):
-	name = models.CharField(max_length=250)
-	username= models.CharField(max_length=250)
+class Profile(models.Model):
+	user = models.OneToOneField(settings.AUTH_USER_MODEL)
 	birtday = models.DateTimeField()
-	email = models.CharField(max_length=250)
-	password = models.CharField(max_length=250)
 	phone = PhoneNumberField()
-	image = models.CharField(max_length=500)
+	image = models.ImageField(upload_to='users/%Y/%m/%d', blank=True)
 	ROLE = (
 		(1, u'Admin'),
 		(2, u'Editor'),
@@ -116,3 +114,6 @@ class User(models.Model):
 		)
 	role = models.IntegerField(choices=ROLE, default=3)
 	is_active = models.IntegerField(choices=ACTIVE, default=1)
+
+	def __str__(self):
+		return 'Profile for user {}'.format(sefl.user.username)

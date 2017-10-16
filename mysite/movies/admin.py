@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.contrib import admin
 
-from .models import Category, Director, Actor, Promotion, Film, FilmCategory, FilmDirector, FilmActor, Showtime, Showtime_Detail, User
+from .models import Profile, Category, Director, Actor, Promotion, Film, FilmCategory, FilmDirector, FilmActor, Showtime, Showtime_Detail
 
 class ShowtimeDatailInline(admin.StackedInline):
 	"""docstring for ShowtimeDatailInline"""
@@ -16,7 +16,9 @@ class ShowtimeAdmin(admin.ModelAdmin):
 		('Show Date', {'fields':['showdate'], 'classes':['collapse']}),
 	]
 	inlines = [ShowtimeDatailInline]
-		
+
+class ProfileAdmin(admin.ModelAdmin):
+	list_display = ['user', 'birtday', 'image', 'phone']
 
 admin.site.register(Category)
 admin.site.register(Director)
@@ -28,4 +30,4 @@ admin.site.register(FilmDirector)
 admin.site.register(FilmActor)
 admin.site.register(Showtime,ShowtimeAdmin )
 admin.site.register(Showtime_Detail)
-admin.site.register(User)
+admin.site.register(Profile, ProfileAdmin)

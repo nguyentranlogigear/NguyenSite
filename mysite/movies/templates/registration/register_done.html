@@ -1,0 +1,13 @@
+{% extends 'movies/base.html' %}
+{% load static %}
+
+{% block extrastyle %}
+	<link rel="stylesheet" href="{% static 'movies/css/login.css' %}">
+{% endblock extrastyle %}
+
+{%block title %}Welcom {% endblock title %}
+
+{% block main-content-header %}
+	<h2> Welcome {{ new.user.username }}</h2>
+	<p> Your acount has been successfully. Now you can <a href="{% url 'movies:login' %}">Login </a> </p>
+{% endblock main-content-header %}

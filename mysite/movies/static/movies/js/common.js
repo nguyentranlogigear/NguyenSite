@@ -57,20 +57,6 @@ $(document).ready(function(){
         }
       }
   });
-    $('.tab a').on('click', function (e) {
-      
-      e.preventDefault();
-      
-      $(this).parent().addClass('active');
-      $(this).parent().siblings().removeClass('active');
-      
-      target = $(this).attr('href');
-
-      $('.metiz-tab-content > div').not(target).hide();
-      
-      $(target).fadeIn(600);
-      
-    });
     $('#datetimepicker').datetimepicker({
       format: 'yyyy-mm-dd',
       pickTime: false,

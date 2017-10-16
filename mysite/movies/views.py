@@ -8,58 +8,98 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django import forms
-from .forms import UserRegisterForm
-
+from .forms import UserLoginForm,UserRegisterForm, UserEditForm, ProfileEditForm
+from .tokens import account_activation_token
+from django.core.mail import EmailMessage
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout as django_logout
+from .models import Profile
 
 def base(request):
-	return render(request, 'movies/user/base.html', {})
+	return render(request, 'movies/base.html', {})
 
 def home(request):
-	return render(request, 'movies/user/index.html',{})
+	return render(request, 'movies/home.html',{'section' : 'home'})
 
 def film(request):
-	return render(request, 'movies/user/film.html',{})
+	return render(request, 'movies/film.html',{})
 
-def login(request):
+def user_login(request):
 	if request.method == 'POST':
-		form = UserCreationForm(request.POST)
+		form = UserLoginForm(request.POST)
 		if form.is_valid():
-			form.save()
-			email = form.cleaned_data.get('email')
-			raw_password = form.cleaned_data.get('password1')
-			user = authenticate(email=email, password=raw_password)
-			login(request, user)
-			return redirect('index')
+			cd = form.cleaned_data
+			user = authenticate(username=cd['username'],
+								password=cd['password'])
+			if user is not None:
+				if user.is_active:
+					login(request, user)
+					return render(request,'movies/home.html', {})
+				else:
+					return render(request, 'registration/login.html',{'errors': 'Your account is block'})
+			else:
+				return render(request,'registration/login.html', {'errors': 'Username and password is correct.Please try again'})
 	else:
-		form = UserCreationForm()
-	return render(request, 'movies/user/login-register.html',{'form':form})
+		if request.user.is_authenticated():
+			return render(request,'movies/home.html', {})
+		else:
+			form = UserLoginForm()
+	return render(request, 'registration/login.html',{'form':form})
 
+@login_required
 def logout(request):
-	return render(request, 'movies/user/film-detail.html',{})
+	django_logout(request)
+	return render(request, 'movies/home.html', {})
 
 def register(request):
+ 	if request.method == 'POST':
+ 		form = UserRegisterForm(request.POST)
+ 		if form.is_valid():
+ 			# Create a new user object but avoid saving it yet
+ 			new_user = form.save(commit=False)
+
+ 			# Set the choosen password
+ 			new_user.set_password(form.cleaned_data['password'])
+
+ 			# Save the user object
+ 			new_user.save()
+
+ 			# Create the user profile
+ 			profile = Profile.object.create(user=new_user)
+
+ 			return render(request, 'registration/register_done.html', {'new_user':new_user})
+
+ 	else:
+ 		form = UserRegisterForm()
+
+ 	return render(request, 'registration/register.html', {'form':form })
+
+@login_required
+def edit_profile(request):
 	if request.method == 'POST':
-		form = UserRegisterForm(request.POST)
-		if form.is_valid():
-			name = form.cleaned_data.get('name')
-			username = form.cleaned_data.get('username')
-			email = form.cleaned_data.get('email')
-			password = form.cleaned_data.get('password')
-			confirm_pass = form.cleaned_data.get('confirm_pass')
-			if not (
-				User.objects.filter(username=username).exists() or
-				User.objects.filter(email=email).exists()
-				):
-			User.objects.create_user(username, name, email, password, confirm_pass, phone, birthday)
+		user_form = UserEditForm(
+			instance=request.user, 
+			data=request.POST 
+			)
+		profile_form = ProfileEditForm(
+			instance=request.user.profile, 
+			data=request.POST, 
+			files=request.FILES
+			)
+		if user_form.is_valid() and profile_form.is_valid():
+			user_form.save()
+			profile_form.save()
+	else:
+		user_form = UserEditForm(instance=request.user)
+		profile_form = ProfileEditForm(instance=request.user.profile)
+	return render(request, 
+			'account/edit_profile.html',
+			{'user_form': user_form,
+			'profile_form': profile_form })
 
-			user = authenticate(username = username, password = password)
-			login(request, user)
-			return HttpResponseRedirect('/')
-
-
-	return render(request, 'movies/user/film-detail.html',{})
 
 def film_detail(request):
-	return render(request, 'movies/user/film-detail.html',{})
+	return render(request, 'movies/film-detail.html',{})
+
 
 	

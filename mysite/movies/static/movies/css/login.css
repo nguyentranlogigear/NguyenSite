@@ -26,7 +26,7 @@
   color: #a0b3b0;
   font-size: 20px;
   float: left;
-  width: 50%;
+  width: 100%;
   text-align: center;
   cursor: pointer;
   -webkit-transition: 0.5s ease;
@@ -147,4 +147,8 @@ h3.metiz-singin {
   display: block;
   width: 100%;
 }
-
+/*display message*/
+.errors {
+  color: red;
+  font-family: 'Saira Semi Condensed', sans-serif;
+}
