@@ -622,8 +622,6 @@ h3.metiz-title {
 
 /*=============== Category-films=================*/
 .category-film {
-  margin-top: 25px;
-  margin-bottom: 10px;
   overflow: hidden;
   position: relative;
 }
@@ -631,6 +629,7 @@ h3.metiz-title {
   width: 100%;
   text-align: right;
   padding-right: 10px;
+  height:87px;
 }
 .category-film .navbar {
   line-height: inherit;

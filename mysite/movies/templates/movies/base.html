@@ -66,8 +66,8 @@
 								<li><a href="#">lịch chiếu</a></li>
 								<li><a href="#">phim</a>
 									<ul class="sub-menu">
-										<li><a href="#">phim đang chiếu</a></li>
-										<li><a href="#">phim sắp chiếu</a></li>
+										<li><a href="{% url 'movies:film_showing' %}">phim đang chiếu</a></li>
+										<li><a href="{% url 'movies:uncoming_movies' %}">phim sắp chiếu</a></li>
 									</ul>
 								</li>
 								<li><a href="#">khuyến mãi</a></li>

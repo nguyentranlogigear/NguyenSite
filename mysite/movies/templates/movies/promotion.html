@@ -1,0 +1,18 @@
+{% extends 'movies/base.html' %}
+{% load static %}
+
+{% block main-content-center %}
+
+	{% block metiz-promotion %} 
+<h1> aac</h1>
+		{% if promotion %}
+			{% for pro in promotion %}
+				{{ pro.id }}
+				{{ pro.name }}
+				{{ pro.title }}
+			{% endfor %}
+		{% endif  %}
+
+	{% endblock metiz-promotion %}
+
+{% endblock main-content-center %}

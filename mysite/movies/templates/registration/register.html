@@ -13,48 +13,11 @@
 			<li class="tab active"><a href="#signin">Đăng kí</a></li>
 		</div>
 		<div class='metiz-tab-content'>
-			<h3 class="metiz-singin">bạn đã là thành viên</h3>
+			<h3 class="metiz-singin">Tham gia vao metiz</h3>
 			<form action="" method="POST" accept-charset="utf-8">
 				{% csrf_token %}
-				<div class="top-row">
-					<div class="field-wrap">
-			            <label>
-			             	Tên đăng nhập <span class="req">*</span>
-			            </label>
-			            <input name="username" type="text" required autocomplete="off"/>
-		         	</div>
-		          	<div class="field-wrap">
-			            <label>
-			               Tên riêng <span class="req">*</span>
-			            </label>
-			            <input name="first_name" type="text" required autocomplete="off"/>
-				    </div>
-				</div>
-	            <div class="field-wrap">
-		            <label>
-		              	Email<span class="req">*</span>
-		            </label>
-		            <input name="email" type="email" required autocomplete="off"  />
-		        </div>
-		        <div class="field-wrap">
-			        <label>
-			            Mật khẩu<span class="req">*</span>
-			        </label>
-			        <input name="password" type="password" required autocomplete="off"/>
-		        </div>
-		        <div class="field-wrap">
-		            <label>
-		             	Nhập lại Mật khẩu <span class="req">*</span>
-		            </label>
-		            <input name="password2" type="password" required autocomplete="off"/>
-		        </div>
-		        <div class="field-wrap">
-		          	<div class="errors" style="color: red;">
-		          		{% if errors %}
-				          	{{ errors }}
-				        {% endif %}
-		          	</div>
-		        </div>
+				{{ form.as_p }}
+
 	          <button class="button button-block"/>Đăng kí</button>
 			</form>
 		</div>

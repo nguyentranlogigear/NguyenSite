@@ -2,29 +2,24 @@
 {% load static %}
 {% block main-content-header %}
 	{% block metiz-slider %}
-		<section> <!-- Slider banner -->
-		<div class="container">
+		<section class=""> <!-- Slider banner -->
 			<div id="jssor_1">
 		        <div data-u="slides" class="slider-banner">
 		            <div>
-		                <img data-u="image" class="image-banner" src="{% static 'movies/images/thum_image.png' %}" />
+		                <img data-u="image" class="img-responsive" src="{% static 'movies/images/thum_image.png' %}" />
 		                <img data-u="thumb" class ="thum-banner" src="{% static 'movies/images/banner/slide/slide4.png' %}" />
 		            </div>
 		            <div>
-		                <img data-u="image" class="image-banner" src="{% static 'movies/images/thum_image.png' %} "/>
+		                <img data-u="image" class="img-responsive" src="{% static 'movies/images/thum_image.png' %} "/>
 		                <img data-u="thumb" class ="thum-banner" src="{% static 'movies/images/banner/slide/slide1.png' %}" />
 		            </div>
 		            <div>
-		                <img data-u="image" class="image-banner" src="{% static 'movies/images/thum_image.png' %}" />
+		                <img data-u="image" class="img-responsive" src="{% static 'movies/images/thum_image.png' %}" />
 		                <img data-u="thumb" class ="thum-banner" src="{% static 'movies/images/banner/slide/slide3.png' %}" />
 		            </div>
 		            <div>
-		                <img data-u="image" class="image-banner" src="{% static 'movies/images/thum_image.png' %}" />
+		                <img data-u="image" class="img-responsive" src="{% static 'movies/images/thum_image.png' %}" />
 		                <img data-u="thumb" class ="thum-banner" src="{% static 'movies/images/banner/slide/slide4.png' %}" />
-		            </div>
-		            <div>
-		                <img data-u="image" class="image-banner" src="{% static 'movies/images/thum_image.png' %} "/>
-		                <img data-u="thumb" class ="thum-banner" src="{% static 'movies/images/banner/slide/slide1.png' %}" />
 		            </div>
 		        </div>
 		        <!-- Thumbnail Navigator -->
@@ -45,7 +40,6 @@
 		           <i class="fa fa-chevron-right" aria-hidden="true" style="color: #fff; position: absolute; top:312px; left:935px; font-size: 20px; font-family: 'FontAwesome'"></i>
 		        </div>
 			</div>
-        </div>
 		</section> <!-- /Slider banner -->
 	{% endblock metiz-slider %}
 
@@ -71,10 +65,10 @@
 
 						</div>
 						<div class='col-md-3'>
-							<a href="#"><button type="button" class="movie-is-showing">PHIM ĐANG CHIẾU</button></a>
+							<a href="{% url 'movies:film_showing' %}"><button type="button" class="movie-is-showing">PHIM ĐANG CHIẾU</button></a>
 						</div>
 						<div class='col-md-3'>
-							<a href=""><button type="button" class="uncoming-movie">PHIM SẮP CHIẾU</button></a>
+							<a href="{% url 'movies:uncoming_movies' %}"><button type="button" class="uncoming-movie">PHIM SẮP CHIẾU</button></a>
 						</div>
 						<div class="col-md-3">
 						</div>
@@ -297,76 +291,44 @@
 		<section class="metiz-promotion"> <!-- metiz-promotion -->
 		<h3 class='title-pro'>Khuyến mãi và ưu đãi</h3>
 			<div class="container">
-			<div class="row">
-				<div class="col-md-6">
-					<div class="content-metiz">
-						<h5 class="title-content">
-							Nhiều ưu đãi liên tục
-						</h5>
-						<p class="content-pro">
-							Nullam imperdiet, sem at fringilla lobortis, sem nibh fringilla nibh, idae gravida mi purus sit amet erat. Ut dictum nisi massa, vitae pulvinar metus scelerisque in.
-							Ut dictum nisi massa, vitae pulvinar metus scelerisque in.
-						</p>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="content-metiz">
+							<h5 class="title-content">
+								Nhiều ưu đãi liên tục
+							</h5>
+							<p class="content-pro">
+								Nullam imperdiet, sem at fringilla lobortis, sem nibh fringilla nibh, idae gravida mi purus sit amet erat. Ut dictum nisi massa, vitae pulvinar metus scelerisque in.
+								Ut dictum nisi massa, vitae pulvinar metus scelerisque in.
+							</p>
+						</div>
+						<br>
 					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="overlay-pro">
-							<img src="{% static 'movies/images/promotion/black_friday.png' %}" class="image-pro">
-					  <div class="middle-pro">
-					    <div class="text-pro">xem phim thả ga, trúng ngay xe khủng</div>
-					    <a href="" title="" class="btn button-pro">chi tiết</a>
-					  </div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="overlay-pro">
-					    <img src="{% static 'movies/images/promotion/crazy_sale.png' %}" alt="" class="image-pro">
-					    <div class="middle-pro">
-					    	<div class="text-pro">xem phim thả ga, trúng ngay xe khủng</div>
-					    	<a href="" title="" class="btn button-pro">chi tiết</a>
-					  	</div>
-					</div>
-				</div>
-			</div>
-			<br>
-			<div class="row">
-				<div class="col-md-3">
-					<div class="overlay-pro">
-						<img src="{% static 'movies/images/promotion/sale_70.png' %}" alt="" class="image-pro">
-						<div class="middle-pro">
-						    <div class="text-pro">xem phim thả ga, trúng ngay xe khủng</div>
-						    <a href="" title="" class="btn button-pro">chi tiết</a>
-					  </div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="overlay-pro">
-						<img src="{% static 'movies/images/promotion/summer.png' %}" alt="" class="image-pro">
-						<div class="middle-pro">
-						    <div class="text-pro">xem phim thả ga, trúng ngay xe khủng</div>
-						    <a href="" title="" class="btn button-pro">chi tiết</a>
-					  	</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="overlay-pro">
-						<img src="{% static 'movies/images/promotion/black_friday.png' %}" alt="" class="image-pro">
-						<div class="middle-pro">
-						    <div class="text-pro">xem phim thả ga, trúng ngay xe khủng</div>
-						    <a href="" title="" class="btn button-pro">chi tiết</a>
-					  	</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="overlay-pro-plus">
-						<img src="{% static 'movies/images/promotion/sale_70.png' %}" alt="" class="image-pro">
-						<div class="middle-pro">
-						    <a href="" class="icon-add-pro">+</a>
-						    <div class="text-pro-plus">xem nhiều hơn </div>
+					{% if promotions %}
+					{% for pro in promotions %}
+						<div class="col-md-3">
+							<div class="overlay-pro">
+								<img src="{{ pro.image.url }}" class="image-pro">
+								<div class="middle-pro">
+								    <div class="text-pro">{{ pro.title|slice:":40" }}</div>
+								    <a href="{% url 'movies:promotion_detail' pro.id %}" title="" class="btn button-pro">chi tiết</a>
+								</div>
+							</div>
+							<br>
+						</div>
+					{% endfor %}
+					{% endif  %}
+					<div class="col-md-3">
+						<div class="overlay-pro-plus">
+							<img src="{% static 'movies/images/promotion/sale_70.png' %}" alt="" class="image-pro">
+							<div class="middle-pro">
+							    <a href="" class="icon-add-pro">+</a>
+							    <div class="text-pro-plus">xem nhiều hơn </div>
+							</div>
 						</div>
 					</div>
+					<br>
 				</div>
-			</div>
 			</div>
 		</section> <!-- /metiz-promotion -->
 	{% endblock metiz-promotion %}

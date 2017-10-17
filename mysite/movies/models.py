@@ -41,6 +41,7 @@ class Promotion(models.Model):
 	description = RichTextUploadingField()
 	start_date = models.DateTimeField()
 	end_date = models.DateTimeField()
+	created_at = models.DateTimeField()
 	ACTIVE = (
 		(1, u'Active'),
 		(2, u'Block'),
@@ -51,9 +52,9 @@ class Promotion(models.Model):
 		return self.name
 
 class Film(models.Model):
-	category = models.ManyToManyField(Category, through='FilmCategory')
-	director = models.ManyToManyField(Director, through='FilmDirector')
-	actor = models.ManyToManyField(Actor, through='FilmActor')
+	category = models.ManyToManyField(Category, related_name='category')
+	director = models.ManyToManyField(Director, related_name='director')
+	actor = models.ManyToManyField(Actor, related_name='actor')
 	name = models.CharField(max_length=250)
 	image = ProcessedImageField(
 		upload_to='movies/static/movies/images/films/%Y/%m/%d',
@@ -78,30 +79,24 @@ class Film(models.Model):
 	def __unicode__(self):
 		return self.name
 
-class FilmCategory(models.Model):
-	film = models.ForeignKey(Film, on_delete=models.CASCADE)
-	category = models.ForeignKey(Category, on_delete=models.CASCADE) 
-
-class FilmDirector(models.Model):
-	film = models.ForeignKey(Film, on_delete=models.CASCADE)
-	director = models.ForeignKey(Director, on_delete=models.CASCADE)
-
-class FilmActor(models.Model):
-	film = models.ForeignKey(Film, on_delete=models.CASCADE)
-	actor = models.ForeignKey(Actor, on_delete=models.CASCADE)
-
 class Showtime(models.Model):
 	film = models.ForeignKey(Film, on_delete=models.CASCADE)
 	showdate = models.DateField()
 
+	def __unicode__(self):
+		return u"{0} [{1}]".format(self.film, self.showdate)
+
 class Showtime_Detail(models.Model):
 	showtime = models.ForeignKey(Showtime, on_delete=models.CASCADE)
-	time = models.DateTimeField()
+	time = models.TimeField()
+
+	def __unicode__(self):
+		return u"{0} [{1}]".format(self.showtime, self.time)
 
 class Profile(models.Model):
 	user = models.OneToOneField(settings.AUTH_USER_MODEL)
-	birtday = models.DateTimeField()
-	phone = PhoneNumberField()
+	birtday = models.DateField(null=True, blank=True)
+	phone = PhoneNumberField(blank=True)
 	image = models.ImageField(upload_to='users/%Y/%m/%d', blank=True)
 	ROLE = (
 		(1, u'Admin'),
@@ -115,5 +110,3 @@ class Profile(models.Model):
 	role = models.IntegerField(choices=ROLE, default=3)
 	is_active = models.IntegerField(choices=ACTIVE, default=1)
 
-	def __str__(self):
-		return 'Profile for user {}'.format(sefl.user.username)

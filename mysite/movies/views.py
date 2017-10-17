@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from django.http import Http404
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse
 from django.contrib.auth import login, authenticate
@@ -13,13 +14,13 @@ from .tokens import account_activation_token
 from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout as django_logout
-from .models import Profile
+from .models import Profile, Category, Director, Actor, Promotion, Film, Showtime, Showtime_Detail
 
-def base(request):
-	return render(request, 'movies/base.html', {})
 
 def home(request):
-	return render(request, 'movies/home.html',{'section' : 'home'})
+	promotions = Promotion.objects.all().order_by('-created_at')[:5]
+
+	return render(request, 'movies/home.html',{'section' : 'home', 'promotions': promotions})
 
 def film(request):
 	return render(request, 'movies/film.html',{})
@@ -41,7 +42,8 @@ def user_login(request):
 				return render(request,'registration/login.html', {'errors': 'Username and password is correct.Please try again'})
 	else:
 		if request.user.is_authenticated():
-			return render(request,'movies/home.html', {})
+			promotions = Promotion.objects.all().order_by('-created_at')[:5]
+			return render(request,'movies/home.html', {'promotions': promotions})
 		else:
 			form = UserLoginForm()
 	return render(request, 'registration/login.html',{'form':form})
@@ -65,7 +67,7 @@ def register(request):
  			new_user.save()
 
  			# Create the user profile
- 			profile = Profile.object.create(user=new_user)
+ 			profile = Profile.objects.create(user=new_user)
 
  			return render(request, 'registration/register_done.html', {'new_user':new_user})
 
@@ -98,8 +100,34 @@ def edit_profile(request):
 			'profile_form': profile_form })
 
 
-def film_detail(request):
-	return render(request, 'movies/film-detail.html',{})
+def film_detail(request, id):
+	try:
+		film = Film.objects.get(pk=id)
+		return render(request, 'movies/film-detail.html',{'film':film})
 
+	except Film.DoesNotExist:
+		raise Http404('Films does not exist')
+
+
+def promotion_detail(request, id):
+	try:
+		promotion = Promotion.objects.filter(id = id).order_by('-created_at')
+
+	except Promotion.DoesNotExist:
+		raise Http404('Promotion does not exist')
+
+	return render(request, 'movies/promotion_detail.html', {'promotion':promotion })
+
+
+def film_showing(request):
+
+	list_film_show = Film.objects.filter(status = 'NR')
+
+	return render(request, 'movies/film_showing.html', {'list_film_show': list_film_show })
+
+def uncoming_movies(request):
+	list_uncoming_movies = Film.objects.filter(status='NS')
+
+	return render(request, 'movies/uncoming_movies.html', {'list_uncoming_movies': list_uncoming_movies})
 
 	
