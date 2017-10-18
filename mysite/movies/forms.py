@@ -3,12 +3,11 @@ from django import forms
 from django.contrib.auth.models import User
 from phonenumber_field.modelfields import PhoneNumberField
 from django.forms import ModelForm
-from .models import Profile
-
+from .models import *
 
 class UserLoginForm(forms.Form):
-	username = forms.CharField()
-	password = forms.CharField(widget=forms.PasswordInput)
+	username = forms.CharField(label = 'tên đăng nhập ')
+	password = forms.CharField(label = 'Mật khẩu' ,widget=forms.PasswordInput)
 
 class UserRegisterForm(forms.ModelForm):
 	password = forms.CharField(label='Password', widget=forms.PasswordInput)

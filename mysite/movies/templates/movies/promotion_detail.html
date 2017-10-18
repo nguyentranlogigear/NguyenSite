@@ -2,35 +2,47 @@
 {% load static %}
 
 {% block main-content-center %}
-	<div class="metiz-film-detail">
-		<div class="row">
-			<div class="category-film">
-				<div class="info-film">
-					<div class="navbar nav-menu">
+
+{% block metiz-promotion %} 
+	{% if promotion %}
+	{% for pro in promotion %}
+	<div class='container'>
+		<div class="category-film">
+				<div class="navbar nav-menu">
 					<div class="navbar-collapse">
 						<ul class="nav navbar-nav">
 						</ul>
 					</div>
 				</div>
-				</div>
-			</div>
 		</div>
-		<hr>
-		{% block metiz-promotion %} 
-		{% if promotion %}
-		{% for pro in promotion %}
-		<div class="container">
-			<div class="row">
-				<div class="col-md-5">
-					<img class="img-responsive" src="{{ film.image.url }}" alt="" width="100%">
-				</div>
-				<br>
-			</div>
-			<div class="row">
-		       <div class="des">
-		       	<h4 class="metiz-title">Tóm tắt phim</h4>
+		<div class="hot-deal-block">
+	    	<div class="hot-title">
+	    		<span> {{ pro.name }}</span>
+	    	</div>
+	    	<div class="deal-block">
+	    	</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8">
+				<img src="{{ pro.image.url }}" class="img-responsive" alt="">
+				<div class="des">
+		       		<h4 class="metiz-title">{{ pro.title }}</h4>
 	            	<p> {{ pro.description }}</p>
 	            	<a href="javascript:;" title="Xem thêm" class="view-more-4" data-viewmore-text="">Xem thêm</a>
+            	</div>
+			</div>
+			<div class="col-md-4">
+				<div class="sidebar-title"><h3 class='metiz-title'>Khuyến mãi khác </h3></div>
+				<div class="promotion">
+					{% for p in list_pro %}
+		                <div class="row promotion-thumb">
+		                	<div class="col-md-3">
+		                	<a href="{% url 'movies:promotion_detail' p.id %}"><img class="img-responsive" src="{{ p.image.url }}" alt=""></a>
+		                </div>
+	                        <div class="col-md-9"><a href="{% url 'movies:promotion_detail' p.id %}">{{ p.title }}</a></div>
+	                    </div>
+	                    <br>
+	                {% endfor %}
             	</div>
 			</div>
 		</div>
@@ -38,7 +50,7 @@
 	{% endfor %}
 	{% endif  %}
 
-	{% endblock metiz-promotion %}
+{% endblock metiz-promotion %}
 
 {% endblock main-content-center %}
 {% block main-content-bottom %}

@@ -645,7 +645,7 @@ h3.metiz-title {
   font-weight: 600;
   text-transform: uppercase;
   margin: 0;
-  line-height: 18px;
+  line-height: 26px;
   letter-spacing: 1px;
   padding: 20px 20px;
 }
@@ -812,7 +812,7 @@ a.booking-button:hover {
   border: 1px solid #cac6c0;
   padding: 10px 10px;
   background-color: #fff;
-  margin:16px 14px;
+  margin:16px auto;
   color: black;
   font-family:  'Saira Semi Condensed', sans-serif;
 }
@@ -822,3 +822,44 @@ h4.metiz-title{
   font-weight: bold;
   padding: 5px;
 }
+
+/*==================Promotion================*/
+.hot-title {
+  background-color: #fff;
+  color: #ed1c24;
+  font-size: 18px;
+  font-weight: 700;
+  position: relative;
+  text-transform: uppercase;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding:15px;
+}
+.uncomming-title{
+  background-color: #fff;
+  color: #00b7f1;
+  font-size: 18px;
+  font-weight: 700;
+  position: relative;
+  text-transform: uppercase;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding:15px;
+}
+.uncomming-deal-block {
+  border-top: 3px solid #00b7f1;
+  box-shadow: 0 2px 16px 1px rgba(0,0,0,0.1);
+  padding: 10px;
+}
+.deal-block {
+  border-top: 3px solid #ea1d25;
+  box-shadow: 0 2px 16px 1px rgba(0,0,0,0.1);
+  padding: 10px;

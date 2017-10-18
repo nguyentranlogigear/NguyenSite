@@ -1,85 +1,36 @@
 {% extends 'movies/base.html' %}
 {% load static %}
 
-{% block main-content-header %}
-	{% block metiz-slider %}
-		<section> <!-- Slider banner -->">
-			<div id="jssor_1">
-		        <div data-u="slides" class="slider-banner">
-		            <div>
-		                <img data-u="image" class="image-banner" src="{% static 'movies/images/thum_image.png' %}" />
-		                <img data-u="thumb" class ="thum-banner" src="{% static 'movies/images/banner/slide/slide4.png' %}" />
-		            </div>
-		            <div>
-		                <img data-u="image" class="image-banner" src="{% static 'movies/images/thum_image.png' %} "/>
-		                <img data-u="thumb" class ="thum-banner" src="{% static 'movies/images/banner/slide/slide1.png' %}" />
-		            </div>
-		            <div>
-		                <img data-u="image" class="image-banner" src="{% static 'movies/images/thum_image.png' %}" />
-		                <img data-u="thumb" class ="thum-banner" src="{% static 'movies/images/banner/slide/slide3.png' %}" />
-		            </div>
-		            <div>
-		                <img data-u="image" class="image-banner" src="{% static 'movies/images/thum_image.png' %}" />
-		                <img data-u="thumb" class ="thum-banner" src="{% static 'movies/images/banner/slide/slide4.png' %}" />
-		            </div>
-		        </div>
-		        <!-- Thumbnail Navigator -->
-		        <div data-u="thumbnavigator" class="jssort101" data-autocenter="1" data-scale-bottom="0.75" style="">
-		            <div data-u="slides">
-		                <div data-u="prototype" class="p" >
-		                    <div data-u="thumbnailtemplate" class="t"></div>
-		                    <svg viewbox="0 0 16000 16000" class="cv">
-		                    </svg>
-		                </div>
-		            </div>
-		        </div>
-		        <!-- Arrow Navigator -->
-		        <div data-u="arrowleft" class="jssora106" >
-		            <i class="fa fa-chevron-left" aria-hidden="true" style="color: #fff; position: absolute; top:312px; left:35px; font-size: 20px; font-family: 'FontAwesome' "></i>
-		        </div>
-		        <div data-u="arrowright" class="jssora106">
-		           <i class="fa fa-chevron-right" aria-hidden="true" style="color: #fff; position: absolute; top:312px; left:935px; font-size: 20px; font-family: 'FontAwesome'"></i>
-		        </div>
-			</div>
-		</section> <!-- /Slider banner -->
-	{% endblock metiz-slider %}
-
-{% endblock main-content-header %}
-
 {% block main-content-center %}
 	<div class="category-film">
-		<div class="container-fluid">
+		<div class="category-film">
 			<div class="navbar nav-menu">
 				<div class="navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li>
-							<div class="new-title" style="padding-top: 12px">
-								<h2> PHIM ĐANG CHIẾU </h2>
-							</div>
-						</li>
-						<li class="active"><a data-toggle="tab" href="#tab-1">Kinh dị</a> </li>
-			            <li class=""><a data-toggle="tab" href="#tab-2" >Hành động</a> </li>
-			            <li class=""><a data-toggle="tab" href="#tab-3" >Phiêu lưu</a> </li>
-			            <li class=""><a data-toggle="tab" href="#tab-4">Hoạt hình</a> </li>
-			            <li class=""><a data-toggle="tab" href="#tab-5" >Hài</a> </li>
-			            <li class=""><a data-toggle="tab" href="#tab-6">Tâm lý, tình cảm</a> </li>
 					</ul>
 				</div>
 			</div>
-        </div>
+			<div class="hot-deal-block">
+		    	<div class="hot-title">
+		    		<span>PHIM ĐANG CHIẾU </span>
+		    	</div>
+		    	<div class="deal-block">
+		    	</div>
+			</div>
+		</div>
         <div class="metiz-films-container">
         	<div class="container-fluid">
         		<div class="tab-container">
         			<div class="tab-pane fade in active" id="tab-1">
         				<div class="row">
-        					{% if list_film_show %}
-        					{% for film_show in list_film_show %}
+        					{% if films_show %}
+        					{% for film_show in films_show %}
 	        					<div class="item col-md-3">
 	        						<div class="item-image">
 	        							<img  class="img-responsive" src="{{ film_show.image.url }}" alt="">
 	        						</div>
 	        						<div class="item-info">
-										<li class="movie-name"> {{ film_show.name|slice:":30" }} </li>
+										<li class="movie-name"> {{ film_show.name|slice:":30"|upper }} </li>
 										<ul>
 											<li><a href="{% url 'movies:film_detail' film_show.id %}" class="btn metiz-button">Chi tiet</a></li>
 											<li><a href="" class="btn metiz-button">Dat ve</a></li>
@@ -91,9 +42,31 @@
         				</div>
         			</div>
         		</div>
+        		<div class="container">
+    			    <ul class="pager">
+        				{% if films_show.has_previous %}
+					    	<li><a href="?page={{ films.previous_page_number }}" class="page-link">&laquo;</a></li>
+					    {% else %}
+					    	<li class="disabled"><span>&laquo;</span></li>
+					    {% endif %}
+					    {% for i in films_show.paginator.page_range %}
+					    	{% if films_show.number == i %}
+					   			<li class="active"><span style="background-color: #337ab7;">{{ i }}<span class="sr-only">(current)</span></span></li>
+					   		{% else %}
+					   			<li><a href="?page={{ i }}">{{ i }}</a></li>
+					   		{% endif %}
+					   	{% endfor %}
+					    {% if films_show.has_next %}
+					    	<li><a href="?page={{ films_show.next_page_number }}">&raquo;</a></li>
+					    {% else %}
+					    	<li class="disabled"><span>&raquo;</span></li>
+					    {% endif %}
+   					 </ul>
+        		</div>
         	</div>
         </div>
 	</div>
+
 {% endblock main-content-center %}
 
 {% block main-content-bottom %}

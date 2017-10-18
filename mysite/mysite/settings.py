@@ -14,9 +14,9 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
-# LOGIN_REDIRECT_URL = reverse_lazy('home')
-# LOGIN_URL = reverse_lazy('login')
-# LOGOUT_URL = reverse_lazy('logout')
+LOGIN_REDIRECT_URL = 'movies:login'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'imagekit',
     'phonenumber_field',
+    'social_django',
+    
 ]
 
 MIDDLEWARE = [
@@ -57,6 +59,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -72,14 +76,21 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'social_django.context_processors.backends',  # <--
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
 ]
 
 AUTHENTICATION_BACKENDS = (
-    'diango.contrib.auth.backends.ModelBackend'
-    'account.authentication.EmailAuthBackend',
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
+
+    'django.contrib.auth.backends.ModelBackend',
+    # 'account.authentication.EmailAuthBackend',
     )
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
@@ -180,3 +191,12 @@ CKEDITOR_UPLOAD_SLUGIFY_FILENAME = False
 CKEDITOR_RESTRICT_BY_USER = True
 CKEDITOR_BROWSE_SHOW_DIRS = True
 CKEDITOR_RESTRICT_BY_DATE = True
+
+SOCIAL_AUTH_FACEBOOK_KEY = '281665392347256'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'f8cd5c547b741c3b3639a7a0ced01d1e'
+
+SOCIAL_AUTH_GITHUB_KEY = 'cfa24ea35bf0a962aa2f'
+SOCIAL_AUTH_GITHUB_SECRET = '266ee52b74d5821f0d4e188582ae85059086fbf9'
+
+SOCIAL_AUTH_TWITTER_KEY = ' yqH5O1C1qKiEkT7g6e4GyEhbU'
+SOCIAL_AUTH_TWITTER_SECRET = 'XZoDumAuKvVJubOfIpH4elkahFZ64fy8cjbHTfAdG7Btal8gs5'

@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import Http404
+from datetime import datetime, timedelta
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse
 from django.contrib.auth import login, authenticate
@@ -108,26 +110,63 @@ def film_detail(request, id):
 	except Film.DoesNotExist:
 		raise Http404('Films does not exist')
 
+def promotion(request):
+	
+	promo = Promotion.objects.all().order_by('-created_at')
+	paginator = Paginator(promo, 8)
+
+	page = request.GET.get("page")
+	try:
+		promotions = paginator.page(page)
+	except PageNotAnInteger:
+		promotions = paginator.page(1)
+
+	except EmptyPage:
+		promotions = paginator.page(paginator.num_pages)
+
+	return render(request, 'movies/promotion.html', {'promotions':promotions})
 
 def promotion_detail(request, id):
 	try:
 		promotion = Promotion.objects.filter(id = id).order_by('-created_at')
+		list_pro = Promotion.objects.all().order_by('start_date')[:4]
 
 	except Promotion.DoesNotExist:
 		raise Http404('Promotion does not exist')
 
-	return render(request, 'movies/promotion_detail.html', {'promotion':promotion })
+	return render(request, 'movies/promotion_detail.html', {'promotion':promotion, 'list_pro':list_pro})
 
 
 def film_showing(request):
 
 	list_film_show = Film.objects.filter(status = 'NR')
+	paginator = Paginator(list_film_show, 8) # Show 8 films each page
 
-	return render(request, 'movies/film_showing.html', {'list_film_show': list_film_show })
+	page = request.GET.get("page")
+	try:
+		films_show = paginator.page(page)
+	except PageNotAnInteger:
+		# if page_number is not an interger, return first page
+		films_show = paginator.page(1)
+	except EmptyPage:
+		# if page is out of range(e.g. 9999) , deliver last page of results.
+		films_show = paginator.page(paginator.num_pages)
+
+	return render(request, 'movies/film_showing.html', {'films_show': films_show })
 
 def uncoming_movies(request):
 	list_uncoming_movies = Film.objects.filter(status='NS')
+	paginator = Paginator(list_uncoming_movies, 8) # Show 8 films each page
 
-	return render(request, 'movies/uncoming_movies.html', {'list_uncoming_movies': list_uncoming_movies})
+	page = request.GET.get('page')
+	try:
+		uncoming_movies = paginator.page(page)
+	except PageNotAnInteger:
+		# If page is not an interger, return first page
+		uncoming_movies = paginator.page(1)
+	except EmptyPage:
+		# If page is out of range, deliver last page of results
+		uncoming_movies = paginator.page(paginator.num_pages)
 
-	
+	return render(request, 'movies/uncoming_movies.html', {'uncoming_movies': uncoming_movies})
+

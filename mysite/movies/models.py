@@ -9,6 +9,8 @@ from imagekit.models import ImageSpecField, ProcessedImageField
 from imagekit.processors import ResizeToFill
 from phonenumber_field.modelfields import PhoneNumberField
 from django.conf import settings
+from django.core.exceptions import ValidationError
+
 
 class Category(models.Model):
 	name = models.CharField(max_length=250)
@@ -50,6 +52,13 @@ class Promotion(models.Model):
 
 	def __unicode__(self):
 		return self.name
+
+	def clean(self):
+		if self.start_date > self.end_date:
+			raise ValidationError('Start date cannot precede end date')
+	def save(self, *args, **kwargs):
+		super(Promotion, self).save(*args, **kwargs)
+
 
 class Film(models.Model):
 	category = models.ManyToManyField(Category, related_name='category')

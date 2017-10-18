@@ -70,7 +70,7 @@
 										<li><a href="{% url 'movies:uncoming_movies' %}">phim sắp chiếu</a></li>
 									</ul>
 								</li>
-								<li><a href="#">khuyến mãi</a></li>
+								<li><a href="{% url 'movies:promotion' %}">khuyến mãi</a></li>
 								<li><a href="#">blog phim</a></li>
 								<li><a href="#">thành viên </a></li>
 							</ul>
@@ -101,7 +101,7 @@
 				<div class="row">
 					<div class='col-md-3'>
 						<ul class="list-unstyled">
-							<img src="{% static 'movies/images/logo/logo-metiz-cenima.png' %}">
+							<a href="{% url 'movies:home' %}" ><img src="{% static 'movies/images/logo/logo-metiz-cenima.png' %}"></a>
 							<li class="metiz-address"> 
 								helio center, đường 2/9, phường hòa cường bắc, quận hải châu, thành phố đà nẵng.
 							</li>

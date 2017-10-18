@@ -7,38 +7,107 @@
 
 {%block title %}Login with Metiz {% endblock title %}
 
-{% block main-content-header %}
-	<div class='metiz-form'>
-		<div class="metiz-tab-group">
-			<li class="tab active"><a href="#login">Đăng nhập</a></li>
+{% block main-content-center %}
+	<div class='container'>
+		<div class="category-film">
+				<div class="navbar nav-menu">
+					<div class="navbar-collapse">
+						<ul class="nav navbar-nav">
+						</ul>
+					</div>
+				</div>
 		</div>
-		<div class='metiz-tab-content'>
-			<h3 class="metiz-singin">bạn đã là thành viên</h3>
-				<form action="" method="POST" accept-charset="utf-8">
-					{% csrf_token %}
-					<div class="field-wrap">
-			            <label>
-			              Username <span class="req">*</span>
-			            </label>
-			            <input name="username" type="text" required autocomplete="off"/>
-		         	 </div>
-		          
-		          <div class="field-wrap">
-			            <label>
-			              Mật khẩu<span class="req">*</span>
-			            </label>
-			            <input name="password" type="password" required autocomplete="off"/>
-		          </div>
-		          <div class="field-wrap">
-		          	<div class="errors" style="color: red;">
-		          		{% if errors %}
-				          	{{ errors }}
-				        {% endif %}
-		          	</div>
-		          </div>
-		          <button class="button button-block"/>Đăng nhập</button>
-				</form>
+		<div class="hot-deal-block">
+	    	<div class="hot-title">
+	    		<h3 class="metiz-singin">bạn đã là thành viên</h3>
+	    	</div>
+	    	<div class="deal-block">
+	    	</div>
 		</div>
 	</div>
-<hr>           
-{% endblock main-content-header %}
+	<div class="container">
+		<div class='metiz-form-login'>
+			<div class="row">
+				<div class="col-md-6">
+					<form action="" method="POST" accept-charset="utf-8">
+						<div class="row">
+							<div class='col-md-6'></div>
+							<div class="col-md-6">
+								<span class="req">* Thông tin bắt buộc</span>
+							</div>
+						</div>
+						<br>
+						<div class="row metiz-login">
+							{% csrf_token %}
+							<p><label for="id_username">tên đăng nhập :</label> <input name="username" required="" id="id_username" type="text"></p>
+							<p><label for="id_password">Mật khẩu:</label> <input name="password" required="" id="id_password" type="password"></p>
+						</div>
+						{% if errors %}
+							<br>
+							<div class='row'>
+								<div class="errors" style="color: red;">
+							        {{ errors }}
+				          		</div>
+				          	</div>
+			          	 {% endif %}
+		          		<br>
+						<div class="row">
+							<div class="col-md-6">
+								<a href="">Quên mật khẩu?</a>
+							</div>
+							<div class="col-md-6">
+								<a href="">Tham gia vào Metiz</a>
+							</div>
+						</div>
+						<div class='row'>
+							<button class="button button-block"/>Đăng nhập</button>
+						</div>
+					</form>
+				</div>
+				<div class="col-sm-2">
+					<div class="or-divider">
+				        <div class="inner">
+				            <div class="loginReg__or">Or</div>
+				        </div>
+					</div>
+				</div>
+				<div class='col-md-3'>
+					<div class="social-inner">
+                    <div class="fb-wrapper">
+           			 	<a href="{% url 'social:begin' 'facebook' %}">Đăng nhập với Facebook</a>
+    				</div>
+                	<div class="github-wrapper">
+			           <a href="{% url 'social:begin' 'github' %}">Đăng nhập với GitHub</a>
+		            </div>
+		            <div class="twitter-wrapper">
+			            <a href="{% url 'social:begin' 'twitter' %}">Đăng nhập với Twitter</a>
+   					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock main-content-center %}
+{% block main-content-bottom %}
+	<section class="metiz-ads"> <!-- metiz-ads -->
+		<hr>
+		<div class="metiz-icon-social">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+					</div>
+					<div class='col-md-4'>
+						<div class="metiz-social">
+							<li class="metiz-icon-facabook"><a href=""><img src="{% static 'movies/images/icon/icon_facebook.png'%}" class="img-responsive"></a></li>
+							<li class="metiz-icon-instagram"><a href=""><img src="{% static 'movies/images/icon/icon_instagram.png'%}" class="img-responsive"></a></li>
+							<li class="metiz-icon-youtube"><a href=""><img src="{% static 'movies/images/icon/icon_youtube.png'%}" class="img-responsive"></a></li>
+						</div>
+					</div>
+					<div class='col-md-4'>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section> <!-- /metiz-ads -->
+{% endblock main-content-bottom %}
+

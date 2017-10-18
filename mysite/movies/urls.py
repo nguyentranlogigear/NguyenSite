@@ -17,6 +17,7 @@ urlpatterns = [
 	url(r'^password-change/done/$', password_change_done, name='password_change_done'),
 	url(r'^logout/$', views.logout, name='logout'),
 	
+	
 	# Home
 	url(r'^$', views.home, name='home'),
 
@@ -27,6 +28,7 @@ urlpatterns = [
 	url(r'^film_showing/$', views.film_showing, name='film_showing'),
 	url(r'^film_detail/(?P<id>[0-9]+)/$', views.film_detail, name='film_detail'),
 
+	url(r'^promotion/$', views.promotion, name='promotion'),
 	url(r'^promotion_detail/(?P<id>[0-9]+)/$', views.promotion_detail, name='promotion_detail'),
 
 
